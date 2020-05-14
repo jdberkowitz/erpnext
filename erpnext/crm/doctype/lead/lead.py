@@ -41,11 +41,12 @@ class Lead(SellingController):
 		})
 
 		self.set_status()
-		self.check_email_id_is_unique()
+# Removing email address validation on leads so more than one lead can use the same email address. 
+#		self.check_email_id_is_unique()
 
 		if self.email_id:
-			if not self.flags.ignore_email_validation:
-				validate_email_address(self.email_id, throw=True)
+#			if not self.flags.ignore_email_validation:
+#				validate_email_address(self.email_id, throw=True)
 
 			if self.email_id == self.lead_owner:
 				frappe.throw(_("Lead Owner cannot be same as the Lead"))
